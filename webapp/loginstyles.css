@@ -122,3 +122,8 @@ body{
     content: counter(step);
     counter-increment: step; 
 }
+
+.progressbar li.anonymous:before {
+    border-color: orangered;
+    background: orangered;
+ }

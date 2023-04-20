@@ -8,11 +8,13 @@ const login = () => {
         username: email,
         password: password
     };
+
     const init = {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(initparams)
     };
+
     fetch(url, init)
         .then(res => {
             if (!res.ok) {
@@ -20,11 +22,12 @@ const login = () => {
             }
             _jwtToken = res.headers.get("Authorization");
             console.log(_jwtToken);
-            return res.json()
+            return res.json();
         }).then(data => {
-
+        window.location.href = "index.html?id=" + data.userID + "&firstname=" + data.firstname;
     }).catch(err => {
         console.log(err);
-        alert(err);
+        let error = document.getElementById("error");
+        error.innerText = "Username oder Password nicht gefunden!";
     });
 }

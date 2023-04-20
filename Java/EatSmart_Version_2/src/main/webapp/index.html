@@ -23,12 +23,30 @@
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <script src="javaScript/login.js"></script>
+
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body onload="showUserName();">
+  <script>
+    function showUserName()
+    {
+      var urlParams = new URLSearchParams(window.location.search);
+      var anmelden = document.getElementById("anmelden");
+      var id = urlParams.get('id');
+      var firstname = urlParams.get('firstname');
+
+      if(firstname != null && id != null)
+      {
+        anmelden.innerText = "Hallo, " + firstname;
+        anmelden.addEventListener('click', function(event) {
+          event.preventDefault(); // Verhindert, dass der Link wie üblich funktioniert
+          window.location.href = 'dashboard.html'; // Ändert die Weiterleitung des Links
+        });
+      }
+    }
+  </script>
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center header-transparent">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
@@ -49,7 +67,7 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="login.html" class="book-a-table-btn scrollto">Anmelden</a>
+      <a href="login.html" id="anmelden" class="book-a-table-btn scrollto">Anmelden</a>
 
     </div>
   </header><!-- End Header -->

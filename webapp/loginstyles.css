@@ -2,7 +2,8 @@
 
 body{
     font-family: 'Poppins', sans-serif;
-    background-image: url("assets/img/svg\ \(3\).png");
+    background-image: url("assets/img/background.png");
+    background-size: cover;
 }
 
 /*------------ container ------------*/
@@ -43,7 +44,8 @@ body{
      .right-box{
         padding: 20px;
      }
-
+     ul.topnav li.right, 
+     ul.topnav li {float: none;}
 }
 
 
@@ -126,4 +128,8 @@ body{
 .progressbar li.anonymous:before {
     border-color: orangered;
     background: orangered;
+ }
+
+ hr{
+    width: 50%;
  }

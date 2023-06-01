@@ -34,4 +34,16 @@ public class LoginRessource {
             return Response.status(Response.Status.UNAUTHORIZED).build();
         }
     }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response register(User user) {
+        try {
+
+            return Response.ok().entity(user).build();
+        } catch (NoSuchElementException ex) {
+            ex.printStackTrace();
+            return Response.status(Response.Status.UNAUTHORIZED).build();
+        }
+    }
 }

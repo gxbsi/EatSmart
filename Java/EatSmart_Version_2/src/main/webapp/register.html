@@ -8,64 +8,88 @@
     <link rel="stylesheet" href="loginstyles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
     <title>EatSmart Register</title>
+    <script src="javaScript/register.js"></script>
 </head>
 <body>
+<br><br><br>
+     <div class="container d-flex justify-content-center align-items-center min-vh-100" style="margin-top: 25px;">
+         <div class="row border rounded-5 p-3 bg-white shadow box-area">
+           <div class="col-md-6">
+               <div class="row align-items-center">
+                   <h3>Generelles:</h3>
+                   <div class="input-group mb-3">
+                       <input type="text" class="form-control form-control-lg bg-light fs-6" id="username" placeholder="Enter Username">
+                   </div>
+                   <div class="input-group mb-3">
+                       <input type="text" class="form-control form-control-lg bg-light fs-6" id="email" placeholder="Enter Email">
+                   </div>
+                   <div class="input-group mb-1">
+                       <input type="password" class="form-control form-control-lg bg-light fs-6" id="password" placeholder="Enter Password">
+                   </div><br>
+                   <h4>Gewicht</h4>
+                   <div class="input-group mb-3">
+                       <input type="text" class="form-control form-control-lg bg-light fs-6" id="gewicht" placeholder="in kg">
+                   </div>
+                   <h4>Groeße</h4>
+                   <div class="input-group mb-3">
+                       <input type="text" class="form-control form-control-lg bg-light fs-6" id="groesse" placeholder="in cm">
+                   </div>
+                   <h4>Wählen Sie Ihren Körperfettanteil aus:</h4>
+                   <div class="input-group mb-5 d-flex justify-content-between">
+                       <img src="assets/img/Körperfett (1).png" style="height: 200px;" alt="">
+                       <img src="assets/img/Körperfett (2).png" style="height: 200px;" alt="">
+                       <img src="assets/img/Körperfett (3).png" style="height: 200px;" alt="">
+                       <img src="assets/img/Körperfett (4).png" style="height: 200px;" alt="">
+                       <img src="assets/img/Körperfett (5).png" style="height: 200px;" alt="">
+                   </div>
+               </div>
+           </div>
+             <div class="col-md-6" >
+                 <div class="row align-items-center">
+                     <h3>Adresse:</h3>
+                     <div class="input-group mb-3">
+                         <input type="text" class="form-control form-control-lg bg-light fs-6" id="strasse" placeholder="Straße">
+                     </div>
+                     <div class="input-group mb-3">
+                         <input type="text" class="form-control form-control-lg bg-light fs-6" id="hausnummer" placeholder="Hausnummer">
+                     </div>
+                     <div class="input-group mb-3">
+                         <input type="text" class="form-control form-control-lg bg-light fs-6" id="postleitzahl" placeholder="Postleitzahl">
+                     </div>
+                     <div class="input-group mb-3">
+                         <input type="text" class="form-control form-control-lg bg-light fs-6" id="stadt" placeholder="Stadt">
+                     </div>
+                     <div class="input-group mb-3">
+                         <input type="text" class="form-control form-control-lg bg-light fs-6" id="land" placeholder="Land Region">
+                     </div>
+                     <div class="input-group mb-5 d-flex justify-content-between">
+                     </div>
+                 </div>
+                 <div class="header-text mb-4">
+                     <h2>Ziele:</h2>
+                 </div>
+                 <h4>Zielgewicht</h4>
+                 <div class="input-group mb-3">
+                     <input type="text" class="form-control form-control-lg bg-light fs-6" id="zielgewicht" placeholder="in kg">
+                 </div>
+                 <h4>Wählen Sie Ihren Ziel-Körperfettanteil aus:</h4>
+                 <div class="input-group mb-5 d-flex justify-content-between">
+                     <img src="assets/img/Körperfett (1).png" style="height: 200px;" alt="">
+                     <img src="assets/img/Körperfett (2).png" style="height: 200px;" alt="">
+                     <img src="assets/img/Körperfett (3).png" style="height: 200px;" alt="">
+                     <img src="assets/img/Körperfett (4).png" style="height: 200px;" alt="">
+                     <img src="assets/img/Körperfett (5).png" style="height: 200px;" alt="">
+                 </div>
+             </div>
 
-    
-     <div class="container d-flex justify-content-center align-items-center min-vh-100"> 
-       <div class="row border rounded-5 p-3 bg-white shadow box-area">
-        <div class="progressbar-wrapper">
-            <ul class="progressbar">
-                <li class="active">Registrieren</li>
-                <li>Step 2</li>
-                <li>Step 3</li>
-                <li>Step 4</li>
-                <li>Step 4</li>
-            </ul>
-      </div>
-            <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box">
-             <div class="featured-image mb-3">
-                <img src="assets/img/Eatsmart.png">
-                 <h3>Willkommen bei</h3>
-                <h1 style="color: #D01542">EatSmart</h1>
-                 <p style="color: #A3C12B;">The Smarter Way to Eat</p>
-            </div>
-       </div> 
-       <div class="col-md-6 right-box" >
-          <div class="row align-items-center">
-                <div class="header-text mb-4">
-                     <h2>Register</h2>
-                </div>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control form-control-lg bg-light fs-6" placeholder="Enter Username">
-                </div>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control form-control-lg bg-light fs-6" placeholder="Enter Email">
-                </div>
-                <div class="input-group mb-1">
-                    <input type="password" class="form-control form-control-lg bg-light fs-6" placeholder="Enter Password">
-                </div>
-                <div class="input-group mb-5 d-flex justify-content-between">
-                </div>
-                <div class="input-group mb-3">
-                    <button class="btn btn-lg w-100 fs-6" 
+             <div class="input-group mb-3">
+                 <a class="btn btn-lg w-100 fs-6" onclick="ziele(5, 1);"
                     style="border: 2px solid;
-                    border-image: linear-gradient(45deg,#D01542, #A3C12B) 10;">
-                    Continue</button>
-                </div>
-                <div class="row">
-                    <small>Haben Sie schon einen Account? <a href="login.html">Log In</a></small>
-                </div>
-                <div class="row">
-                    <p style="text-align: center;">Or connect with Social Media</p>
-                    <div class="column" style="margin: auto;text-align: center;">
-                        <a href="#" class="bi bi-instagram"></a>
-                        <a href="#" class="bi bi-facebook"></a>
-                    </div>
-                </div>
-          </div>
-       </div> 
-      </div>
-    </div>
+                    border-image: linear-gradient(45deg,#D01542, #A3C12B) 10;" href="register_geschafft.html">
+                     Continue</a>
+             </div>
+         </div>
+     </div>
+<br><br><br>
 </body>
 </html>

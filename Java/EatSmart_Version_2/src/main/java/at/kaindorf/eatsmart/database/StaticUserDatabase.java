@@ -1,7 +1,11 @@
 package at.kaindorf.eatsmart.database;
 
+import at.kaindorf.eatsmart.io.IO_Access;
 import at.kaindorf.eatsmart.pojos.User;
 
+import javax.management.openmbean.KeyAlreadyExistsException;
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -16,7 +20,16 @@ public class StaticUserDatabase
 
     private StaticUserDatabase()
     {
-        addUserToList();
+        try {
+            userList.addAll(IO_Access.getUsersFromCsvFile());
+            System.out.println(userList);
+            for (User user: userList)
+            {
+                passwords.put(user.getUsername(), user.getPasswort());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static StaticUserDatabase getInstance()
@@ -28,22 +41,34 @@ public class StaticUserDatabase
         return theInstance;
     }
 
-    private void addUserToList()
+    public User login(String username, String passwd)
     {
-        //Hier wird die Liste mit allen Usern aus der Datenbank befüllt
-        User testUser = new User(1l, "Gabriel", "Haikal", 198,
-                LocalDate.parse("24.02.2005", DTF), "admin", "admin");
-        userList.add(testUser);
-        passwords.put("admin", "admin");
-    }
-
-    public User login(String username, String passwd){
         String passwdDB = passwords.get(username);
         if(passwdDB != null && passwdDB.equals(passwd)){
             return userList.stream()
                     .filter(user -> user.getUsername().equals(username)).findFirst().get();
         }
         throw new NoSuchElementException("User not found");
+    }
+
+    public User register(User user)
+    {
+        if(!userList.contains(user))
+        {
+            Long id = userList.stream().mapToLong(c -> c.getUserID()).max().getAsLong();
+            user.setUserID(id);
+            userList.add(user);
+            passwords.put(user.getUsername(), user.getPasswort());
+            try {
+                IO_Access.addUser(userList);
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return user;
+        }
+        throw new KeyAlreadyExistsException("User schon vorhanden!");
     }
 
 }
